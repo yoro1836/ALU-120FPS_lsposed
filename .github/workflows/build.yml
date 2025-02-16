@@ -1,0 +1,74 @@
+name: Build Samsung Spoofer APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to build (e.g., S24U, S25U)'
+        required: true
+        default: 'S24U'
+        type: choice
+        options:
+          - S24U
+          - S25U
+  
+jobs:
+  pre_build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Required to create releases and upload assets
+      packages: write  # Required if you're working with packages
+      actions: read    # Required to read workflow details
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch || github.ref }}
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permissions for gradlew
+        run: chmod +x gradlew
+
+      - name: Determine Branch
+        id: branch
+        run: |
+          if [ "${{ github.event.inputs.branch || github.ref }}" == "refs/heads/S24U" ]; then
+            echo "BRANCH_NAME=S24U" >> $GITHUB_ENV
+            echo "APP_NAME=Samsung Spoofer S24U LSPosed App" >> $GITHUB_ENV
+            echo "TAG_NAME=samsungspoofers24u-${{ github.run_number }}" >> $GITHUB_ENV
+          elif [ "${{ github.event.inputs.branch || github.ref }}" == "refs/heads/S25U" ]; then
+            echo "BRANCH_NAME=S25U" >> $GITHUB_ENV
+            echo "APP_NAME=Samsung Spoofer S25U LSPosed App" >> $GITHUB_ENV
+            echo "TAG_NAME=samsungspoofers25u-${{ github.run_number }}" >> $GITHUB_ENV
+          else
+            echo "BRANCH_NAME=manual" >> $GITHUB_ENV
+            echo "APP_NAME=Samsung Spoofer Manual Build" >> $GITHUB_ENV
+            echo "TAG_NAME=samsungspoofer-manual-${{ github.run_number }}" >> $GITHUB_ENV
+          fi
+
+      - name: Build with Gradle
+        run: ./gradlew build -PbuildBranch=${{ env.BRANCH_NAME }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            **/*.apk
+          name: "${{ env.APP_NAME }}"
+          tag_name: "${{ env.TAG_NAME }}"
+          body: |
+            Automated build of ${{ env.APP_NAME }}
+            Build number: ${{ github.run_number }}
+            Commit: ${{ github.sha }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
