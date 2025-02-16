@@ -1,16 +1,8 @@
-name: Build Samsung Spoofer APK
+name: Build S24Ultra-Spoofer_LSPosed APK
 
 on:
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to build (e.g., S24U, S25U)'
-        required: true
-        default: 'S24U'
-        type: choice
-        options:
-          - S24U
-          - S25U
+    
   
 jobs:
   pre_build:
@@ -37,25 +29,8 @@ jobs:
       - name: Grant execute permissions for gradlew
         run: chmod +x gradlew
 
-      - name: Determine Branch
-        id: branch
-        run: |
-          if [ "${{ github.event.inputs.branch || github.ref }}" == "refs/heads/S24U" ]; then
-            echo "BRANCH_NAME=S24U" >> $GITHUB_ENV
-            echo "APP_NAME=Samsung Spoofer S24U LSPosed App" >> $GITHUB_ENV
-            echo "TAG_NAME=samsungspoofers24u-${{ github.run_number }}" >> $GITHUB_ENV
-          elif [ "${{ github.event.inputs.branch || github.ref }}" == "refs/heads/S25U" ]; then
-            echo "BRANCH_NAME=S25U" >> $GITHUB_ENV
-            echo "APP_NAME=Samsung Spoofer S25U LSPosed App" >> $GITHUB_ENV
-            echo "TAG_NAME=samsungspoofers25u-${{ github.run_number }}" >> $GITHUB_ENV
-          else
-            echo "BRANCH_NAME=manual" >> $GITHUB_ENV
-            echo "APP_NAME=Samsung Spoofer Manual Build" >> $GITHUB_ENV
-            echo "TAG_NAME=samsungspoofer-manual-${{ github.run_number }}" >> $GITHUB_ENV
-          fi
-
       - name: Build with Gradle
-        run: ./gradlew build -PbuildBranch=${{ env.BRANCH_NAME }}
+        run: ./gradlew build
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
