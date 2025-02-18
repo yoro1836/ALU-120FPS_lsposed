@@ -28,13 +28,6 @@ public class MainHook implements IXposedHookLoadPackage {
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {        
         XposedBridge.log("ALU Spoof: Hooking into: " + lpparam.packageName);
 
-        // ro.product.model
-        XposedHelpers.setStaticObjectField(Build.class, "PRODUCT.MODEL", "VER-N49");
-
-        // ro.product.vendor.model
-        XposedHelpers.setStaticObjectField(Build.class, "VENDOR.MODEL", "VER-N49");
-
-        // ro.product.system.model
-        XposedHelpers.setStaticObjectField(Build.class, "SYSTEM.MODEL", "VER-N49");
+        XposedHelpers.setStaticObjectField(Build.class, "MODEL", "VER-N49");
     }
 }
