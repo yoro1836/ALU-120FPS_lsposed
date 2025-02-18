@@ -62,7 +62,7 @@ jobs:
           name: "Release ${{ steps.extract_tag.outputs.tag_name || steps.set_tag.outputs.tag_name }}"
           tag_name: "${{ steps.extract_tag.outputs.tag_name || steps.set_tag.outputs.tag_name }}"
           body: |
-            Automated build of S24Ultra-Spoofer_LSPosed
+            Automated build of ALU-120FPS_LSPosed
             Build number: ${{ github.run_number }}
             Commit: ${{ github.sha }}
           draft: false
