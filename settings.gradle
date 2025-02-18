@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://api.xposed.info'}
     }
 }
-rootProject.name = "ALU120FPS"
+rootProject.name = "alu120fps"
 include ':app'

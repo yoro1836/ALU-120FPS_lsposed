@@ -13,7 +13,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mrx7014.s24ultraspoofer;
+package com.yoro1836.alu120fps;
 
 import android.os.Build;
 
