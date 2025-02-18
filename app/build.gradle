@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.mrx7014.s24ultraspoofer'
+    namespace 'com.yoro1836.alu120fps'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mrx7014.s24ultraspoofer"
+        applicationId "com.yoro1836.alu120fps"
         minSdk 29
         targetSdk 34
         versionCode 1

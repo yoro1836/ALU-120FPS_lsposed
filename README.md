@@ -1,7 +1,7 @@
-# S24Ultra-Spoofer LSPosed
+# ALU-120FPS LSPosed
 
-## What is S24Ultra-Spoofer?
-S24Ultra-Spoofer is a module for LSPosed that lets you spoof all device-specific properties of your device, selectively for individual apps, to a high end Samsung device (Currently S24 Ultra (e3q)
+## What is ALU-120FPS?
+ALU-120FPS is a module for LSPosed that lets you spoof all device-specific properties of your device, selectively for individual apps, to a high end Samsung device (Currently S24 Ultra (e3q)
 
 ## How to install
 ### Prerequisites
@@ -13,11 +13,11 @@ To use this module you must have one of the following (latest versions):
 You must also have [LSPosed](https://github.com/mywalkb/LSPosed_mod) installed
 
 ### Installation
-- Download the latest APK of S24UltraSpoofer from the [releases section](https://github.com/mrx7014/S24Ultra-Spoofer_LSPosed/releases) and install it like any normal APK.
+- Download the latest APK of ALU-120FPS from the [releases section](https://github.com/yoro1836/ALU-120FPS_LSPosed/releases) and install it like any normal APK.
 - Now open the LSPosed Manager and go to "Modules".
 - S24UltraSpoofer should now appear in that list.
 - Click on S24UltraSpoofer and enable the module by flipping the switch at the top that says "Enable module".
 - Next, tick all the apps that you want to spoof details for and reboot your phone afterwards.
 - Once rebooted, you should be able to successfully open your apps.
 
-[MRX7014 Cloud Telegram](https://t.me/mrx7014cloud)
+[Orginal Source Github](https://github.com/mrx7014/S24Ultra-Spoofer_LSPosed)
