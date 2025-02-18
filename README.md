@@ -1,7 +1,7 @@
 # ALU-120FPS LSPosed
 
 ## What is ALU-120FPS?
-ALU-120FPS is a module for LSPosed that lets you spoof all device-specific properties of your device, selectively for individual apps, to a high end Samsung device (Currently S24 Ultra (e3q)
+ALU-120FPS is a module for LSPosed that lets you spoof all device-specific properties of your device.
 
 ## How to install
 ### Prerequisites
@@ -15,8 +15,8 @@ You must also have [LSPosed](https://github.com/mywalkb/LSPosed_mod) installed
 ### Installation
 - Download the latest APK of ALU-120FPS from the [releases section](https://github.com/yoro1836/ALU-120FPS_LSPosed/releases) and install it like any normal APK.
 - Now open the LSPosed Manager and go to "Modules".
-- S24UltraSpoofer should now appear in that list.
-- Click on S24UltraSpoofer and enable the module by flipping the switch at the top that says "Enable module".
+- ALU-120FPS should now appear in that list.
+- Click on ALU-120FPS and enable the module by flipping the switch at the top that says "Enable module".
 - Next, tick all the apps that you want to spoof details for and reboot your phone afterwards.
 - Once rebooted, you should be able to successfully open your apps.
 
